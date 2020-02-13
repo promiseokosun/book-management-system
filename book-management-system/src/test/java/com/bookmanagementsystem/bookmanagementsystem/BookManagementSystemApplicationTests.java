@@ -1,6 +1,7 @@
 package com.bookmanagementsystem.bookmanagementsystem;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 import java.util.List;
 
@@ -10,7 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.bookmanagementsystem.bookmanagementsystem.dto.BookDTO;
+import com.bookmanagementsystem.dto.BookDTO;
+import com.bookmanagementsystem.service.BookService;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest

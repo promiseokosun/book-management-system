@@ -1,4 +1,4 @@
-package com.bookmanagementsystem.bookmanagementsystem.dto;
+package com.bookmanagementsystem.dto;
 
 public class BookDTO {
 	

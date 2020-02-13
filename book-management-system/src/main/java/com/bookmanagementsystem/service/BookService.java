@@ -1,11 +1,11 @@
-package com.bookmanagementsystem.bookmanagementsystem;
+package com.bookmanagementsystem.service;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.bookmanagementsystem.bookmanagementsystem.dto.BookDTO;
+import com.bookmanagementsystem.dto.BookDTO;
 
 @Service
 public class BookService {
