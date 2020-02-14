@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Response Structure -->
+<GetBookDetailsResponse xmlns="bookmanagementsystem/books"
+	xsi:schemaLocation="bookmanagementsystem/books book-details.xsd"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	
+	<BookDetails>
+		<id>123</id>
+		<name>Great Walls Of Hope</name>
+		<author>Chandler Thomas</author>
+		<description>An Inspirational Book that will keep you hopes alive</description>
+	</BookDetails>
+	
+</GetBookDetailsResponse>
+
+
+
+

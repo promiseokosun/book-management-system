@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import com.bookmanagementsystem.dto.BookDTO;
 
 @Service
-public class BookService {
+public class BookService implements IBookService {
 	
 	private static List<BookDTO> books = new ArrayList<BookDTO>();
 	private static int idCounter = 0;
@@ -20,11 +20,19 @@ public class BookService {
 		books.add(new BookDTO(++idCounter, "Master Spring boot", "Brandan Jones", "A solid guide to spring boot"));		
 	}
 
+	/* (non-Javadoc)
+	 * @see com.bookmanagementsystem.service.IBookService#findAll()
+	 */
+	@Override
 	public List<BookDTO> findAll() {
 		// TODO Auto-generated method stub
 		return books;
 	}
 
+	/* (non-Javadoc)
+	 * @see com.bookmanagementsystem.service.IBookService#findById(int)
+	 */
+	@Override
 	public BookDTO findById(int id) {
 		// TODO Auto-generated method stub
 		for (BookDTO bookDTO : books) {
@@ -35,20 +43,42 @@ public class BookService {
 		return null;
 	}
 
+	/* (non-Javadoc)
+	 * @see com.bookmanagementsystem.service.IBookService#deleteById(int)
+	 */
+	@Override
 	public boolean deleteById(int id) {
 		// TODO Auto-generated method stub
 		BookDTO bookDTO = findById(id);
 		boolean isDeleted = false;
-		isDeleted = books.remove(bookDTO);
+		if(bookDTO != null) {
+			isDeleted = books.remove(bookDTO);
+		}
 		return isDeleted;
 	}
 
+	/* (non-Javadoc)
+	 * @see com.bookmanagementsystem.service.IBookService#save(com.bookmanagementsystem.dto.BookDTO)
+	 */
+	@Override
 	public boolean save(BookDTO book) {
 		// TODO Auto-generated method stub
 		boolean isAdded = false;
-		book.setId(++idCounter); // auto increment id
-		isAdded = books.add(book);
-		
+		if(book.getId() <= 0) {
+			// save operation
+			book.setId(++idCounter); // auto increment id
+			isAdded = books.add(book);
+		}
+		else {
+			// update operation
+			// get the id
+			//delete the book
+			// add the book back
+			int tempId = book.getId();
+			deleteById(tempId);
+			book.setId(tempId);
+			isAdded = books.add(book);
+		}
 		return isAdded;
 	}
 

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema 
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+	targetNamespace="bookmanagementsystem/books" 
+	xmlns:tns="bookmanagementsystem/books" 
+	elementFormDefault="qualified">
+	
+	<!-- Request Rule -->
+	<xs:element name="GetBookDetailsRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="id" type="xs:int"></xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<!-- Response Rule -->
+	<xs:element name="GetBookDetailsResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="BookDetails" type="tns:BookDetails"></xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<!-- defining a type -->
+	<xs:complexType name="BookDetails">
+		<xs:sequence>
+			<xs:element name="id" type="xs:int"></xs:element>
+			<xs:element name="name" type="xs:string"></xs:element>
+			<xs:element name="author" type="xs:string"></xs:element>
+			<xs:element name="description" type="xs:string"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	
+</xs:schema>

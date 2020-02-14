@@ -12,14 +12,14 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.bookmanagementsystem.dto.BookDTO;
-import com.bookmanagementsystem.service.BookService;
+import com.bookmanagementsystem.service.IBookService;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class BookManagementSystemApplicationTests {
 	
 	@Autowired
-	private BookService bookService;
+	private IBookService bookService;
 
 //	@Test
 //	public void contextLoads() {
@@ -27,14 +27,26 @@ public class BookManagementSystemApplicationTests {
 	
 	@Test
 	public void findAllBookTest() {
-		List<BookDTO> books = bookService.findAll();
+		List<BookDTO> books = null;
+		try {
+			books = bookService.findAll();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		assertNotNull(books);
 	}
 	
 	@Test
 	public void findByIdBookTest() {
 		int id = 2;
-		BookDTO book = bookService.findById(id);
+		BookDTO book = null;
+		try {
+			book = bookService.findById(id);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		assertNotNull(book);
 	}
 	
@@ -42,14 +54,25 @@ public class BookManagementSystemApplicationTests {
 	public void deleteByIdBookTest() {
 		int id = 3;
 		boolean result = false;
-		result = bookService.deleteById(id);
+		try {
+			result = bookService.deleteById(id);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		assertTrue(result);
 	}
 	
 	@Test
 	public void saveBookTest() {
-		BookDTO book = new BookDTO();
-		boolean result = bookService.save(book);
+		BookDTO book = new BookDTO("Rich dad Poor dad", "Kenneth Cole", "Inspirational Book");
+		boolean result = false;
+		try {
+			result = bookService.save(book);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		assertTrue(result);
 	}
 	

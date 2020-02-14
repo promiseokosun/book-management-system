@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Request Structure -->
+<GetBookDetailsRequest xmlns="bookmanagementsystem/books"
+	xsi:schemaLocation="bookmanagementsystem/books book-details.xsd"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+	
+	<!-- request -->
+	<id>123</id>
+</GetBookDetailsRequest>
+
+
+
+
